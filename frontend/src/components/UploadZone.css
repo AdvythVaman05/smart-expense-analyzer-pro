@@ -1,0 +1,101 @@
+/* src/components/UploadZone.css */
+.upload-zone {
+  padding: 48px 32px;
+  text-align: center;
+  cursor: pointer;
+  border: 2px dashed var(--border);
+  transition: border-color var(--transition), background var(--transition), transform var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.upload-zone::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 50% 50%, var(--accent-glow), transparent);
+  opacity: 0;
+  transition: opacity var(--transition);
+  pointer-events: none;
+}
+
+.upload-zone:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.upload-zone:hover::before,
+.upload-zone--active::before {
+  opacity: 1;
+}
+
+.upload-zone--active {
+  border-color: var(--accent-light);
+  background: rgba(108, 99, 255, 0.06);
+}
+
+.upload-zone--loading {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.upload-zone__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.upload-zone__icon {
+  color: var(--text-muted);
+  transition: color var(--transition), transform var(--transition);
+}
+
+.upload-zone:hover .upload-zone__icon,
+.upload-zone__icon--active {
+  color: var(--accent-light);
+  transform: translateY(-4px);
+}
+
+.upload-zone__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.upload-zone__sub {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.upload-zone__hint {
+  margin-top: 8px;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card-hover);
+  border: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.upload-zone__hint code {
+  background: rgba(108,99,255,0.2);
+  padding: 1px 6px;
+  border-radius: 4px;
+  color: var(--accent-light);
+  font-size: 0.76rem;
+}
+
+.upload-zone__loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
+}

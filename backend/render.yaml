@@ -1,0 +1,17 @@
+# Render.com deployment configuration for the Flask backend
+services:
+  - type: web
+    name: smart-expense-analyzer-api
+    runtime: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:create_app() --bind 0.0.0.0:$PORT --workers 2
+    envVars:
+      - key: JWT_SECRET_KEY
+        generateValue: true          # Render auto-generates a secure random string
+      - key: DATABASE_URL
+        value: sqlite:///expense_analyzer.db  # swap for PostgreSQL URL in production
+      - key: PYTHON_VERSION
+        value: 3.11.0
+    healthCheckPath: /health

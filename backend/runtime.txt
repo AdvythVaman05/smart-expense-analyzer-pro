@@ -1,0 +1,2 @@
+# smart-expense-analyzer — runtime Python version for Render
+python-3.11.0
