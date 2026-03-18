@@ -28,7 +28,7 @@ def create_app():
 
         # JWT
         JWT_SECRET_KEY=os.environ.get(
-            "JWT_SECRET_KEY", "change-me-in-production-use-a-long-random-string"
+            "JWT_SECRET_KEY", "0041d8462974e9871e415986b9722abc5a0b9a524bbb20d075c684d860202319"
         ),
         JWT_ACCESS_TOKEN_EXPIRES=timedelta(hours=12),
 
